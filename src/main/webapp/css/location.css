@@ -1,0 +1,55 @@
+.zujiquan-index{
+	width: 10%; 
+	height:auto;
+	overflow:hidden;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	margin-bottom:40px;
+	filter:alpha(opacity:30);
+	color:#fff;
+	font-size:50px;
+	text-align:center;
+	line-height:60px; 
+	margin-top: 15px;
+	cursor: pointer;
+}
+.zujiquan-title{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	font-size:36px;
+	text-align:center;
+	line-height:110px;
+	color:#fff;
+	margin-top: -100px;
+}
+.zujiquan-more{
+	width: 200px;  
+    padding:8px; 
+    background-color: #262733; 
+    border-color: #9fa9ae; 
+    filter:alpha(opacity:30);
+    color: #fff;  
+    -moz-border-radius: 10px;  
+    -webkit-border-radius: 10px;  
+    border-radius: 10px; /* future proofing */  
+    -khtml-border-radius: 10px; /* for old Konqueror browsers */  
+    text-align: center;  
+    vertical-align: middle;  
+    border: 1px solid transparent;  
+    font-weight: 900;  
+    font-size:125% 
+}
+#scroll {position:fixed; top:450px; right:0px;}
+.scrollItem {
+    color: #3cfed3;
+	width:20px; 
+	height:70px;
+	border:#e1e1e1 1px solid; 
+	cursor: pointer; 
+	text-align: center; 
+	padding-top: 20px;
+	padding-bottom: 10px;
+	}
+
+
