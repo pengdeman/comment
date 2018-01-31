@@ -325,7 +325,7 @@ function subsssss(){
 				window.location.href="<%=basePath%>indexs";
 			}else if(jsonObj.success == 1){
 				var comment = "";
-				comment += "<div id='pl"+jsonObj.footprintReply.replyId+"'><div class='login-form2' id='loginform' style='width: 87%; border: solid 2px;color: white; margin-top: 1%;'>";
+				comment += "<div id='pl"+jsonObj.footprintReply.replyId+"'><div class='login-form2' id='loginform' style='width: 99%; border: solid 2px;color: white; margin-top: 1%;'>";
 				comment += "<div class='user-name common-div' style='padding: 5px;display:block;word-break: break-all;word-wrap: break-word;'><div style='margin-bottom: 3px; margin-top: 3px;' onclick='showsomebodyindex("+jsonObj.footprintReply.replyUserId+")'>";
 				comment += "<img src='pic/slt"+jsonObj.footprintReply.picurl+"' style='width: 50px; height: 50px; border-radius: 50%;'></div><div>";
 				comment += "<a style='color: blue;' href='javascript:showsomebodyindex("+jsonObj.footprintReply.replyUserId+")'>"+jsonObj.footprintReply.replyUserName+"</a>&nbsp;&nbsp;回复了&nbsp;&nbsp;<a style='color: blue;' href='javascript:showsomebodyindex("+jsonObj.footprintReply.breplyUserId+")'>"+jsonObj.footprintReply.breplyUserName+"</a>:&nbsp;&nbsp;";
