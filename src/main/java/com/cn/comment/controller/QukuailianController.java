@@ -12,8 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class QukuailianController {
 	public static Logger LOGGER = LoggerFactory.getLogger(LocationController.class);
 	
-	@RequestMapping("/qukuailian")
+	@RequestMapping("/qkl")
 	public String btc(HttpServletRequest request){
 		return "qukuailian/index";
+	}
+	
+	@RequestMapping("/lmd")
+	public String lmd(HttpServletRequest request){
+		return "peopleshow/lmd";
+	}
+	
+	@RequestMapping("/pjj")
+	public String pjj(HttpServletRequest request){
+		return "peopleshow/pjj";
+	}
+	
+	@RequestMapping("/pjr")
+	public String pjr(HttpServletRequest request){
+		return "peopleshow/pjr";
 	}
 }
