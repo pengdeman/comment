@@ -204,9 +204,9 @@ public class MailUtil {
     public static void main(String[] args) {
         String mailHost = "smtp.163.com";//
         String sender_username = "penderman@163.com";
-        String sender_password = "pdm@920419";
+        String sender_password = "p920521";
 //        String[] files = {"D:\\images\\email.png", "D:\\images\\abc.jpg" };
-        String[] toUser = { "389318534@qq.com" /*,"872422345@qq.com"*/};
+        String[] toUser = { "872422345@qq.com"/*"389318534@qq.com" ,*/};
 //        String[] toCopy = { "1129014743@qq.com","231186321@qq.com","18910240823@qq.com"};
         // 正文附件
 //        Map<String, String> map = new HashMap<String, String>();
@@ -217,7 +217,7 @@ public class MailUtil {
 //                "邮件主题",
 //                "<div style='background-color:red;'>测试邮件</div><img alt='' src='cid:a00000001'></img>",
 //                toUser, files, toCopy, map);//
-        se.doSendHtmlEmail("测试邮件", "<div style='background-color:red;'>测试邮件</div>", toUser, null);
+        se.doSendHtmlEmail("测试邮件", "<div style='background-color:red;'>测试邮件？？？111</div>", toUser, null);
     }
 
 }

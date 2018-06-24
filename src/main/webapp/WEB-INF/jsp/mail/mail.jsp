@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br>
 <div><!-- 发送人 -->
 <div><b>发送人员：</b></div>
-	<div style="border: solid 1px; padding: 5px; width: 595px; height: 200px; margin-top: -15px; margin-left: 84px;">
+	<div style="border: solid 1px; padding: 5px; width: 595px; margin-top: -15px; margin-left: 84px;">
 		<input type="checkbox" value="" onclick="selectAll()" name="controlAll" id="controlAll">全选<br><br>
 		<c:forEach items="${ulist }" var="item" varStatus="v">
 			<input type="checkbox" value="${item.mail }" name="selected">${item.userName }&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,7 +49,17 @@ function sendmail(){
 	var maillist = mails.substring(0,mails.length-1);//邮件集合
 	var mailtext = $("#texta").val();//邮件内容
 	var mailtitle = $("#mailtitle").val();//邮件主题
-	window.location.href="<%=basePath%>sendmail?maillist="+maillist+"&mailtext="+mailtext+"&mailtitle="+mailtitle;
+	
+	$.ajax({
+		cache:true,
+		type:"POST",
+		url:"<%=basePath%>sendmail",
+		data:{'maillist':maillist,'mailtext':mailtext,'mailtitle':mailtitle},
+		async:false,
+		success:function(data){
+			alert("邮件发送成功！");
+		}
+	});
 }
 
 function selectAll(){

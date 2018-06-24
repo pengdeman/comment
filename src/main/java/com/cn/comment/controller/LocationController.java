@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -554,7 +555,7 @@ public class LocationController {
     		try {
     			String mailHost = "smtp.163.com";//
     			String sender_username = "penderman@163.com";
-    			String sender_password = "pdm920521";
+    			String sender_password = "p920521";
     			String[] toUser = new String[]{usr.getMail()};
     			MailUtil se = new MailUtil(mailHost, sender_username, sender_password, false);
     			se.doSendHtmlEmail("足迹", "［足迹网］ <div>您在足迹上收到了回复，请点击<a href='"+url+"gotolocationdetails?footprintId="+footprintId+"'>www.pengyingjun.com</a>查看评论详情！</div>", toUser, null);
@@ -767,7 +768,7 @@ public class LocationController {
 		try {
 	        String mailHost = "smtp.163.com";//
 	        String sender_username = "penderman@163.com";
-	        String sender_password = "pdm920521";
+	        String sender_password = "p920521";
 			String[] toUser = new String[]{mail};
 			MailUtil se = new MailUtil(mailHost, sender_username, sender_password, false);
 			se.doSendHtmlEmail("足迹", "［足迹网］<div>亲爱的足迹网用户，您好！<a href='"+url+"locationresetpass?mail="+mail+"'>请点击</a>重置密码！</div>", toUser, null);
@@ -1004,7 +1005,7 @@ public class LocationController {
 		try {
 	        String mailHost = "smtp.163.com";//
 	        String sender_username = "penderman@163.com";
-	        String sender_password = "pdm920521";
+	        String sender_password = "p920521";
 			String[] toUser = new String[]{mail};
 			MailUtil se = new MailUtil(mailHost, sender_username, sender_password, false);
 			se.doSendHtmlEmail("您好，非常感谢您注册足迹网！", "［足迹网］<div>亲爱的足迹网-"+userName+"-用户，您好！恭喜您足迹网账号已注册成功！<a href='"+url+"locationactivate?mail="+mail+"'>请点击</a>激活该账号！</div>", toUser, null);
@@ -1181,19 +1182,17 @@ public class LocationController {
     }
     
     @RequestMapping("/sendmail")
-    public String sendmail(HttpServletRequest request,Model model) throws UnsupportedEncodingException{  
+    public String sendmail(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException{  
        String maillist = request.getParameter("maillist");
        String mailtext = request.getParameter("mailtext");
        String mailtitle = request.getParameter("mailtitle");
-//       String mailtext = new String(request.getParameter("mailtext").getBytes("ISO8859-1"),"UTF-8");
-//       String mailtitle = new String(request.getParameter("mailtitle").getBytes("ISO8859-1"),"UTF-8");
        String[] mail = maillist.split(",");
        for(int i=0; i<mail.length; i++){
     	 //发送邮件
    		try {
    	        String mailHost = "smtp.163.com";//
    	        String sender_username = "penderman@163.com";
-   	        String sender_password = "pdm920521";
+   	        String sender_password = "p920521";
    			String[] toUser = new String[]{mail[i]};
    			MailUtil se = new MailUtil(mailHost, sender_username, sender_password, false);
    			se.doSendHtmlEmail("[足迹网]  "+mailtitle, mailtext, toUser, null);
@@ -1201,7 +1200,13 @@ public class LocationController {
    			LOGGER.info(mail[i]+"用户邮件发送失败！");
    		}
        }
-       return "redirect:zjmail"; 
+       Map<String, Object> m = new HashMap<>();
+   	   m.put("json", "发送邮件成功！");
+       response.setCharacterEncoding("utf-8");
+   	   PrintWriter pw = response.getWriter();
+   	   pw.print(JsonUtil.toJson(m).toString());
+   	   pw.flush();
+       return null;
     }
     
 //－－－－－－－－－－－－－－－－－－－邮件发送系统－－－－－－－－－－－－－－－－－－－－－    
