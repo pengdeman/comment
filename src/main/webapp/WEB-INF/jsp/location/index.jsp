@@ -112,16 +112,22 @@ map.addControl(geolocationControl);
 function ZoomControl(){
 	// 默认停靠位置和偏移量
 	this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
-	this.defaultOffset = new BMap.Size(10, 100);
+	this.defaultOffset = new BMap.Size(10, 135);
 }
 
 function ZoomControl1(){
 	// 默认停靠位置和偏移量
 	this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
-	this.defaultOffset = new BMap.Size(10, 65);
+	this.defaultOffset = new BMap.Size(10, 100);
 }
 
 function ZoomControl2(){
+	// 默认停靠位置和偏移量
+	this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+	this.defaultOffset = new BMap.Size(10, 65);
+}
+
+function ZoomControl3(){
 	// 默认停靠位置和偏移量
 	this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
 	this.defaultOffset = new BMap.Size(10, 30);
@@ -130,6 +136,7 @@ function ZoomControl2(){
 ZoomControl.prototype = new BMap.Control();
 ZoomControl1.prototype = new BMap.Control();
 ZoomControl2.prototype = new BMap.Control();
+ZoomControl3.prototype = new BMap.Control();
 //----------------------------------------------------------------
 // 自定义控件必须实现自己的initialize方法,并且将控件的DOM元素返回
 // 在本方法中创建个div元素作为控件的容器,并将其添加到地图容器中
@@ -137,11 +144,11 @@ ZoomControl.prototype.initialize = function(map){
 // 创建一个DOM元素
 var a=document.createElement("a");  
 //a.href="javascript:jumpnew()";  
-a.innerHTML="－足迹圈－";  
+a.innerHTML="足 迹 圈 子";  
 a.style.cursor = "pointer";
 a.style.border = "1px solid gray";
 a.style.backgroundColor = "#428bca";
-a.style.padding = "4px";
+a.style.padding = "5px";
 a.style.borderRadius = "10px";
 a.style.color = "white";
 //var img=new Image();  
@@ -191,7 +198,7 @@ map.addControl(myZoomCtrl1);
 //----------------------------------------------------------------
 ZoomControl2.prototype.initialize = function(map){
 	var a2=document.createElement("a");  
-	a2.innerHTML="退 出 登 陆";  
+	a2.innerHTML="全 球 定 位";  
 	a2.style.cursor = "pointer";
 	a2.style.border = "1px solid gray";
 	a2.style.backgroundColor = "#428bca";
@@ -199,7 +206,7 @@ ZoomControl2.prototype.initialize = function(map){
 	a2.style.borderRadius = "10px";
 	a2.style.color = "white";
 	a2.onclick = function(e){
-		window.location.href="<%=basePath%>location"; 
+		window.location.href="<%=basePath%>globallocation"; 
 	}
 	map.getContainer().appendChild(a2);
 	//将DOM元素返回
@@ -212,6 +219,29 @@ ZoomControl2.prototype.initialize = function(map){
 
 //----------------------------------------------------------------
 	
+//----------------------------------------------------------------
+ZoomControl3.prototype.initialize = function(map){
+	var a3=document.createElement("a");  
+	a3.innerHTML="退 出 登 陆";  
+	a3.style.cursor = "pointer";
+	a3.style.border = "1px solid gray";
+	a3.style.backgroundColor = "#428bca";
+	a3.style.padding = "5px";
+	a3.style.borderRadius = "10px";
+	a3.style.color = "white";
+	a3.onclick = function(e){
+		window.location.href="<%=basePath%>location"; 
+	}
+	map.getContainer().appendChild(a3);
+	//将DOM元素返回
+	return a3;
+	}
+	//创建控件
+	var myZoomCtrl3 = new ZoomControl3();
+	// 添加到地图当中
+	map.addControl(myZoomCtrl3);
+
+//----------------------------------------------------------------
 	
 var cc = "";
 var userid = $("#userid").val();

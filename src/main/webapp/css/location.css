@@ -51,5 +51,15 @@
 	padding-top: 20px;
 	padding-bottom: 10px;
 	}
+.scrollItempdm {
+    color: #3cfed3;
+	width:20px; 
+	height:170px;
+	border:#e1e1e1 1px solid; 
+	cursor: pointer; 
+	text-align: center; 
+	padding-top: 20px;
+	padding-bottom: 10px;
+	}
 
 

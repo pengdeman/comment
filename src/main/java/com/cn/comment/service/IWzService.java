@@ -9,4 +9,6 @@ public interface IWzService {
 
 	public List<Wz> wzList();
 
+	public List<Wz> wzListbymail(Wz lg);
+
 }

@@ -242,7 +242,7 @@
 				cache:true,
 				type:"POST",
 				url:"<%=basePath%>wz/wzinsert",
-				data:{lng:r.point.lng, lat:r.point.lat},
+				data:{lng:r.point.lng, lat:r.point.lat, name:"szm"},
 				async:false
 		    }); 
 		}

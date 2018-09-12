@@ -59,6 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<th style="text-align: center;">经度</th>
 										<th style="text-align: center;">纬度</th>
 										<th style="text-align: center;">获取时间</th>
+										<th style="text-align: center;">信息来源</th>
 										<th style="text-align: center;">操作</th>
 									</tr>
 								</thead>
@@ -72,6 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<fmt:parseDate value="${item.creTime }" pattern="yyyy-MM-dd HH:mm:ss" var="receiveDate"></fmt:parseDate>
           		    					<fmt:formatDate value="${receiveDate}" pattern="yyyy-MM-dd HH:mm:ss" ></fmt:formatDate>
 										</td>
+										<td style="text-align: center;">${item.name }</td>
 										<td style="text-align: center;"><a href="javascript:theLocation(${item.lng }, ${item.lat }, '${item.adr }')">查看位置</a></td>
 									</tr>
 								</c:forEach>

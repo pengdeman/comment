@@ -32,12 +32,18 @@ public class WZController {
         return "wz/index";  
     }
     
+    @RequestMapping("/getfjr")
+    public String getfjr(HttpServletRequest request, HttpServletResponse response, Model model){ 
+    	
+        return "wz/fjr";  
+    }
     
     @RequestMapping("/wzinsert")
     public String  wzinsert(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException{ 
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     	String lng = request.getParameter("lng");//经度
     	String lat = request.getParameter("lat");//纬度
+    	String name = request.getParameter("name");//纬度
     	
     	String wz = GetLatAndLngByBaiduUtil.getCityFromLngAndlat(lat, lng);
     	Wz wzb = new Wz();
@@ -45,6 +51,7 @@ public class WZController {
     	wzb.setLng(lng);
     	wzb.setLat(lat);
     	wzb.setCreTime(sdf.format(new Date()));
+    	wzb.setName(name);
     	wzService.insert(wzb);
     	
     	Map<String, Object> dateMap = new HashMap<String, Object>();

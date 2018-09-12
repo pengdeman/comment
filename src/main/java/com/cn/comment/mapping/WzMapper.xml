@@ -26,4 +26,11 @@
     order by cretime DESC
   </select>
   
+  <select id="wzListbymail" resultMap="BaseResultMap" parameterType="com.cn.comment.pojo.Wz">
+    select 
+    <include refid="Base_Column_List" />
+    from wz where name = #{name,jdbcType=VARCHAR} 
+    order by cretime DESC
+  </select>
+  
 </mapper>

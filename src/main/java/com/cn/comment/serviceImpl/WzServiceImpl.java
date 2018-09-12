@@ -22,4 +22,9 @@ public class WzServiceImpl implements IWzService{
 		return this.wzDao.wzList();
 	}
 
+	@Override
+	public List<Wz> wzListbymail(Wz lg) {
+		return this.wzDao.wzListbymail(lg);
+	}
+
 }

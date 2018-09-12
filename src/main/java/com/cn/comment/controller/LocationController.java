@@ -8,7 +8,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,11 +35,13 @@ import com.cn.comment.pojo.FootprintReply;
 import com.cn.comment.pojo.User;
 import com.cn.comment.pojo.Uzan;
 import com.cn.comment.pojo.Visitor;
+import com.cn.comment.pojo.Wz;
 import com.cn.comment.service.IFootprintReplyService;
 import com.cn.comment.service.IFootprintService;
 import com.cn.comment.service.IUserService;
 import com.cn.comment.service.IUzanService;
 import com.cn.comment.service.IVisitorService;
+import com.cn.comment.service.IWzService;
 import com.cn.comment.util.GetIpUtil;
 import com.cn.comment.util.JsonUtil;
 import com.cn.comment.util.MD5Util;
@@ -62,6 +63,8 @@ public class LocationController {
     private IVisitorService visitorService;
     @Resource  
     private IUzanService uzanService;
+    @Resource  
+    private IWzService wzService;
     
     
     @RequestMapping("/btc")
@@ -148,6 +151,33 @@ public class LocationController {
         session.removeAttribute("login");
 		return "location/locationlogin";
 	}
+	
+	/**
+	 * 全球定位
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/globallocation")
+	public String globallocation(HttpServletRequest request, HttpServletResponse response, Model model){
+		HttpSession session = request.getSession();
+    	User user= (User)session.getAttribute("login");
+    	if(user == null){
+			model.addAttribute("messge", "登录超时，请重新登陆！");
+			return "location/locationlogin";
+		}
+    	Wz lg = new Wz();
+    	lg.setName(user.getMail());
+    	List<Wz> wzs = wzService.wzListbymail(lg);
+    	model.addAttribute("ls", wzs);
+    	model.addAttribute("mail", user.getMail());
+		return "location/globallocation";
+	}
+	
+	@RequestMapping("/getfjr")
+    public String getfjr(HttpServletRequest request, HttpServletResponse response, Model model){ 
+    	model.addAttribute("mail", request.getParameter("mail"));
+        return "location/fjr";  
+    }
 	
 	/**
 	 * 足迹圈删除某条足迹记录

@@ -8,4 +8,6 @@ public interface IWzDao {
 	int insert(Wz record);
 
 	List<Wz> wzList();
+
+	List<Wz> wzListbymail(Wz lg);
 }
