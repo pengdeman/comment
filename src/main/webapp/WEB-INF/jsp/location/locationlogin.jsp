@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
     String path = request.getContextPath();
     String basePath =
@@ -8,9 +8,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
 <html>
 <head>
+<meta charset="utf-8">
 <base href="<%=basePath%>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;"/>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ga2vOgjKiex14wPRkTblnAHYIB2bWrTy"></script>
 <title>足迹</title>

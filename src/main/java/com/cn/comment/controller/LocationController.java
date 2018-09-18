@@ -878,7 +878,9 @@ public class LocationController {
     	String loginName = request.getParameter("username");
 		String password = request.getParameter("password");
 //		String wz = new String(request.getParameter("wz").getBytes("ISO8859-1"),"UTF-8");
-		String wz = request.getParameter("wz");
+		String wz = new String(request.getParameter("wz").getBytes("iso-8859-1"), "utf-8"); 
+		LOGGER.info(wz+"--------------------------------");
+		//String wz = request.getParameter("wz");
 		User loginUser = userService.findLoginUserByLoginNameAndPassword(loginName,MD5Util.MD5(password, ""));
 		if(loginUser!=null && "1".equals(loginUser.getIsActivate())){
 			String logintime = loginUser.getLoginDate().substring(0, 10);
