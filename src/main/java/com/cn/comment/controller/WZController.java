@@ -60,7 +60,9 @@ public class WZController {
     		wzb.setLat(lat);
     		wzb.setCreTime(sdf.format(new Date()));
     		wzb.setName(name);
-    		wzService.insert(wzb);
+    		if(wz.length() > 0) {
+    			wzService.insert(wzb);
+    		}
     		
     		Map<String, Object> dateMap = new HashMap<String, Object>();
     		dateMap.put("wz", wz);

@@ -109,6 +109,12 @@ map.addControl(geolocationControl);
 
 
 //定义一个控件类,即function
+function ZoomControl4(){
+	// 默认停靠位置和偏移量
+	this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
+	this.defaultOffset = new BMap.Size(10, 170);
+}
+
 function ZoomControl(){
 	// 默认停靠位置和偏移量
 	this.defaultAnchor = BMAP_ANCHOR_BOTTOM_RIGHT;
@@ -137,7 +143,34 @@ ZoomControl.prototype = new BMap.Control();
 ZoomControl1.prototype = new BMap.Control();
 ZoomControl2.prototype = new BMap.Control();
 ZoomControl3.prototype = new BMap.Control();
+ZoomControl4.prototype = new BMap.Control();
 //----------------------------------------------------------------
+
+//----------------------------------------------------------------
+
+ZoomControl4.prototype.initialize = function(map){
+var a4=document.createElement("a"); 
+a4.innerHTML="⬇️  收 起️ ";  
+a4.style.cursor = "pointer";
+a4.style.border = "1px solid gray";
+a4.style.backgroundColor = "#428bca";
+a4.style.padding = "5px";
+a4.style.borderRadius = "10px";
+a4.style.color = "white";
+a4.onclick = function(e){
+	
+};
+map.getContainer().appendChild(a4);
+//将DOM元素返回
+return a4;
+}
+//创建控件
+var myZoomCtrl4 = new ZoomControl4();
+// 添加到地图当中
+map.addControl(myZoomCtrl4);
+
+//----------------------------------------------------------------
+
 // 自定义控件必须实现自己的initialize方法,并且将控件的DOM元素返回
 // 在本方法中创建个div元素作为控件的容器,并将其添加到地图容器中
 ZoomControl.prototype.initialize = function(map){
@@ -160,7 +193,7 @@ a.style.color = "white";
 a.onclick = function(e){
 //map.setZoom(map.getZoom() + 2);
 	window.location.href="<%=basePath%>jumppeople"; 
-}
+};
 // 添加DOM元素到地图中
 map.getContainer().appendChild(a);
 // 将DOM元素返回
@@ -174,8 +207,7 @@ map.addControl(myZoomCtrl);
 //----------------------------------------------------------------
 
 ZoomControl1.prototype.initialize = function(map){
-var a1=document.createElement("a");  
-//a.href="javascript:jumpnew()";  
+var a1=document.createElement("a"); 
 a1.innerHTML="发 布 足 迹";  
 a1.style.cursor = "pointer";
 a1.style.border = "1px solid gray";
@@ -207,7 +239,7 @@ ZoomControl2.prototype.initialize = function(map){
 	a2.style.color = "white";
 	a2.onclick = function(e){
 		window.location.href="<%=basePath%>globallocation"; 
-	}
+	};
 	map.getContainer().appendChild(a2);
 	//将DOM元素返回
 	return a2;

@@ -48,7 +48,7 @@
         <div class="circle-2-2 circle-show-1"></div>
         <div class="circle-3-3 circle-show"></div>
     </div>
-    <div class="login-form" id="loginform"><!-- 登录form -->
+    <div class="login-form" id="loginform" style="width: 90%"><!-- 登录form -->
         <div class="user-name common-div" style="height: 500px;">
             <span class="eamil-icon common-icon">
                 <img src="image/dq.gif" title="全球定位展示"/>
@@ -60,12 +60,12 @@
             <div id="allmap" style="min-height: 100%;  width: 100%;"></div>
             <textarea rows="10" cols="50" name="comment" id="comment" style="margin: 0px; height: 179px; width: 368px; font-size: 16px;"></textarea>
         </div>
-         <div class="user-name common-div" style="height: 400px;">
+         <div class="user-name common-div" style="height: 400px; width: 99%;">
             <span class="eamil-icon common-icon" onclick="getlocattion()">
                 <img src="image/coordinates.png" style="height: 40px;" title="定位列表"/>
             </span>
             <div style="height: 400px;  width: 100%; overflow:auto; overflow-x:hidden;">
-			<table style="font-size: 12px; margin-right: 10px;" border="1px;">
+			<table style="font-size: 12px; margin-right: 10px; color: white; width: 99%" border="1px;">
 			<thead>
 				<tr>
 					<th style="text-align: center;">位置</th>

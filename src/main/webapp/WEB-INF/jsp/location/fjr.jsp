@@ -36,8 +36,7 @@
 				data:{lng:r.point.lng, lat:r.point.lat, name:'${mail}'},
 				async:false
 		    }); 
-		}
-		else {
+		}else {
 			alert('failed'+this.getStatus());
 		}        
 	},{enableHighAccuracy: true})
