@@ -45,7 +45,7 @@
 <br>
 <br>
 <img src="image/tx.png"><br><br>
-<b style="color: red; font-size: 16px;">✽ 请使用手机端访问(扫码或直接手机端访问网址www.pengyingjun.com) ✽</b>
+<b style="color: red; font-size: 16px;">✽ 请调整页面宽度小于800或者使用手机端访问(扫码或直接手机端访问网址www.pengyingjun.com) ✽</b>
 </div>
 </body>
 </html>

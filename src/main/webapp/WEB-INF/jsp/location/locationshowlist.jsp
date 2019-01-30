@@ -163,11 +163,13 @@
     var p = navigator.platform;       
     system.win = p.indexOf("Win") == 0;  
     system.mac = p.indexOf("Mac") == 0;  
-    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
-<%--     if(system.win||system.mac||system.xll){//如果是电脑        
-        window.location.href="<%=basePath%>jjuummpp";  
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+    if(system.win||system.mac||system.xll){//如果是电脑 
+    	if(document.body.clientWidth > 800){
+    		window.location.href="<%=basePath%>jjuummpp"; 
+    	}
     }else{  //如果是手机        
-    }  --%>
+    }  
 </script>
 	<script type="text/javascript">
 var windowHeight = parseInt($("body").css("height" ))+5000000;//整个页面的高度
